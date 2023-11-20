@@ -1,0 +1,52 @@
+﻿@model List<Computer_House_Almacen.Models.Producto>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Reporte</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+</head>
+<body>
+    <div class="d-flex justify-content-center align-items-center">
+        <h1>Reporte de Productos en Inventario</h1>
+        <div class="col-9 row justify-content-center">
+            <div class="col-10">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Nombre Producto</th>
+                            <th>Categoría</th>
+                            <th>Marca</th>
+                            <th>Precio Unit.</th>
+                            <th>Stock</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Nomprod</td>
+                                <td>@item.oCategoria.Nomcate</td>
+                                <td>@item.oMarca.Nommarca</td>
+                                <td>@item.Precio</td>
+                                <td>@item.Stock</td>
+                                <td>@item.Estado</td>
+                            </tr>
+
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</body>
+</html>
